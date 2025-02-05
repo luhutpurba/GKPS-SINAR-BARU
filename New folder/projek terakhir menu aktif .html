@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .logo img {
+            margin: 0 10px;
+            width: 100px;
+        }
+        .banner {
+            height: 300px;
+            position: relative;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .banner img.active {
+            opacity: 1;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #444;
+        }
+        .content {
+            padding: 20px;
+        }
+        .menu-content {
+            display: none;
+            margin-top: 10px;
+        }
+        .active-content {
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .logo img {
+                width: 80px;
+            }
+            nav a {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo1.png" alt="Logo 1">
+        <img src="logo2.png" alt="Logo 2">
+        <img src="logo3.png" alt="Logo 3">
+    </div>
+    <div class="banner">
+        <img src="image1.jpg" class="active" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+    </div>
+</header>
+
+<nav>
+    <a href="#" onclick="toggleContent('menu1')">Menu 1</a>
+    <a href="#" onclick="toggleContent('menu2')">Menu 2</a>
+    <a href="#" onclick="toggleContent('menu3')">Menu 3</a>
+    <a href="#" onclick="toggleContent('menu4')">Menu 4</a>
+    <a href="#" onclick="toggleContent('menu5')">Menu 5</a>
+    <a href="#" onclick="toggleContent('menu6')">Menu 6</a>
+    <a href="#" onclick="toggleContent('menu7')">Menu 7</a>
+    <a href="#" onclick="toggleContent('menu8')">Menu 8</a>
+</nav>
+
+<div class="content">
+    <div id="menu1" class="menu-content">Isi Menu 1</div>
+    <div id="menu2" class="menu-content">Isi Menu 2</div>
+    <div id="menu3" class="menu-content">Isi Menu 3</div>
+    <div id="menu4" class="menu-content">Isi Menu 4</div>
+    <div id="menu5" class="menu-content">Isi Menu 5</div>
+    <div id="menu6" class="menu-content">Isi Menu 6</div>
+    <div id="menu7" class="menu-content">Isi Menu 7</div>
+    <div id="menu8" class="menu-content">Isi Menu 8</div>
+</div>
+
+<script>
+    let currentImage = 0;
+    const images = document.querySelectorAll('.banner img');
+
+    function showNextImage() {
+        images[currentImage].classList.remove('active');
+        currentImage = (currentImage + 1) % images.length;
+        images[currentImage].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+
+    function toggleContent(menuId) {
+        const contents = document.querySelectorAll('.menu-content');
+        contents.forEach(content => {
+            if (content.id === menuId) {
+                content.classList.toggle('active-content');
+            } else {
+                content.classList.remove('active-content');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

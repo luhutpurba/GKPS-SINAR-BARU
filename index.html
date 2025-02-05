@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GKPS Sinar Baru</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+            <h1>Selamat Datang di Website GKPS Sinar Baru</h1>
+        <div class="logo">
+                <img src="logo/logo1.png" alt="Logo 1">
+                <img src="logo/logo2.png" alt="Logo 2">
+                <img src="logo/logo3.png" alt="Logo 3">
+        </div>
+        <div class="banner">
+            <img src="images/image1.png" class="active" alt="Image 1">
+            <img src="images/image2.png" alt="Image 2">
+            <img src="images/image3.png" alt="Image 3">
+        </div>
+    </header>
+
+<nav>
+    <a href="#" onclick="toggleContent('beranda')" class="active">
+        <img src="Ikon/home_icon.png" alt="Home" class="icon">Beranda</a>
+    <a href="#" onclick="toggleContent('profil')">
+        <img src="Ikon/about_icon.png" alt="About" class="icon">Profil</a>
+    <a href="#" onclick="toggleContent('jadwal')">
+        <img src="Ikon/schedule_icon.png" alt="Schedule" class="icon">Jadwal</a>
+    <a href="#" onclick="toggleContent('pengurus')">
+        <img src="Ikon/management_icon.png" alt="Management" class="icon">Pengurus</a>
+    <a href="#" onclick="toggleContent('keuangan')">
+        <img src="Ikon/kelola_icon.png" alt="kelola" class="icon">Keuangan</a>
+    <a href="#" onclick="toggleContent('program')">
+        <img src="Ikon/program_icon.png" alt="program" class="icon">Program </a>
+    <a href="#" onclick="toggleContent('saran')">
+        <img src="Ikon/suggestions_icon.png" alt="Suggestions" class="icon">Saran</a>
+    </nav>
+
+<div class="content">
+    <div id="beranda" class="menu-content">
+            <nav class="nav1">
+                    <a href="#" class="a1" onclick="showContent('gallery')">
+                        <img src="Ikon/gallery.png" class="icon">Gallery</a>
+                    <a href="#" class="a1" onclick="showContent('upload')">
+                        <img src="Ikon/upload.png" class="icon">Upload</a>
+                    <a href="#" class="a1" onclick="showContent('tutup')">
+                        <img src="Ikon/close.png" class="icon">Tutup</a>
+                </nav>
+                <div id="gallery" class="content1">
+                        <div class="news-item">
+                            <h3>Periodesasi PMJ 2024-2025</h3>
+                                <img src="pesta/periode1.jpg" alt="gambar berita" class="news-image">
+                                <img src="pesta/periode2.jpg" alt="gambar berita" class="news-image">
+                                <img src="pesta/periode.jpg" alt="gambar berita" class="news-image">
+                                <p>Puji syukur kita ucapkan Tuhan, telah terlaksananya kegiatan periodesasi PMJ GKPS Sinar Baru untuk masa bakti tahun 2025-2030. 
+                                    Berita ini sangat menarik dan informatif.
+                                    semua kegiatan pemilihan berjalan dengan baik
+                                    .Tuhan memberkati kita semua.
+                                        </p>
+                                </div>
+                        <div class="news-item">
+                            <h3>Pesta Olob Olob di Resort</h3>
+                                    <img src="pesta/olob2.jpg" alt="gambar berita" class="news-image">
+                                    <img src="pesta/olob3.png" alt="gambar berita" class="news-image">
+                                    <p>Puji syukur kita ucapkan Tuhan, ini adalah isi berita pertama. Berita ini sangat menarik dan informatif.
+                                        kegiatan ini dilaksanakan di GKPS Bandar Mariah,pada Tgl 08 september 2024,
+                                        semua kegiatan berjalan dengan baik,dan Tuhan memberkati kita semua.
+                                    </p>
+                            </div>
+                            <div class="news-item">
+                                <h3>Porseni Namaposo Resort Sinar Baru</h3>
+                                <img src="pesta/porseni.jpg" alt="gambar berita" class="news-image">
+                                <img src="pesta/pangulu1.jpg" alt="gambar berita" class="news-image">
+                                <p>Puji dan Syukur kita ucapkan kepada Tuhan kita Yesus Kristus,dalam hal kegiatan ini
+                                    namaposo Sinar Baru ikut serta dalam mengikuti setiap rangkaian acara, 
+                                    sehingga berjalan dengan baik semua kegiatan.
+                                    Porseni namaposo dilaksanakan yang sebagai tuan rumah GKPS Bandar Mariah
+                                </p>
+                            </div>
+                    </div>
+                <div id="upload" class="content1">
+                        <div class="upload-area">
+                                <label for="fileUpload">📁 Pilih File</label>
+                                <input type="file" id="fileUpload" accept="image/*,video/*" onchange="previewFile()">
+                                <br>
+                                <input type="text"  id="username" placeholder="Nama Anda" required>
+                                <br>
+                                <textarea id="content"  placeholder="Isian Anda" rows="3"></textarea>
+                                <br>
+                                <button onclick="uploadContent()">Kirim</button>
+                                <img id="filePreview" class="preview" style="display:none;" alt="Preview">
+                                <video id="videoPreview" class="preview" controls style="display:none;"></video>
+                            </div>
+                    </div>
+                    <script>
+                            function showContent(contentId) {
+                                // Sembunyikan semua konten
+                                const contents = document.querySelectorAll('.content1');
+                                contents.forEach(content => {
+                                    content.style.display = 'none';
+                                });
+                                
+                                // Tampilkan konten yang dipilih
+                                const selectedContent = document.getElementById(contentId);
+                                if (selectedContent) {
+                                    selectedContent.style.display = 'block';
+                                }
+                            }
+                        </script>
+<!-------------->
+            
+        <div class="posts" id="posts">
+            <!-- Hasil upload akan ditampilkan di sini -->
+        </div>
+    </div>
+    <div id="profil" class="menu-content">
+            <h3>Profil</h3>
+        <div class="navbar">
+        <div class="nav-item">
+            <table>
+            <thead>
+             <tr>
+              <th> Sejarah GKPS Sinar Baru </th>
+             </tr>
+            </thead>
+            <tbody>
+             <tr>
+              <td>Pada mulanya jemaat Sinar Baru mengadakan kebaktian minggu di gereja GKPS desa Purba Sinombah dengan jarak tempuh lebih kurang 2 km</p>
+                  Karena jauhnya jarak tempuh untuk beribadah ke gereja GKPS yang berada di desa  Purba Sinombah maka tumbuhlah suatu keinginan dikemudian hari untuk mendirikan gereja baru.Dahulunya jemaat bertempat tinggal di Desa Bagotlingga
+                  yang sekarang dikenang dengan nama Huta Lama,dikemudian hari masyarakat Bagotlingga berpindah huta ketempat yang baru dan menamakannya Desa Sinar Baru yang berartikan
+                 "Kampung yang Baru dan Bersinar"
+                  setelah ada musyawarah yang mencapai mufakat bersama dirikanlah sebuah bangunan gereja  GKPS Sinar Baru dengan swadaya jemaat itu sendiri di desa Sinar Baru pada tahun
+                  tgl 23 maret 1983 dengan resort Saribudolok distrik 3</td>
+             </tr>
+           </tbody>
+           </table>
+  
+           <table>
+              <thead>
+               <tr>
+                <th> Tema</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td>"TEMA sinode GKPS tahun 2024 "Hasadaon pakon pangidangion namarbuah"</td>
+               </tr>
+             </tbody>
+             </table>
+  
+             <table>
+              <thead>
+               <tr>
+                <th> Sub Tema</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                <td>"Pataridahkon hita ma hasirsironta pasaudkon hadoharon pakon hadameion 
+                    i tongah tongahni masyarakat ampa negara maronjolan bani hapintoran ampa hasintongan"</td>
+               </tr>
+             </tbody>
+             </table>
+        </div>
+    </div>
+    </div>
+    <div id="jadwal" class="menu-content">
+        <h3>Jadwal Ibadah</h3>
+        <div class="navbar">
+        <div class="nav-item">
+            <table>
+            <thead>
+                <tr>
+                    <th>Kebaktian </th>
+                    <th>Hari</th>
+                    <th>Waktu Masuk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Minggu umum </td>
+                    <td>Minggu</td>
+                    <td>Pkl 10 : 00 Wib</td>
+                </tr>
+                <tr>
+                    <td>Sekolah Minggu</td>
+                    <td>Minggu</td>
+                    <td>Pkl 08 : 30 Wib</td>
+                </tr>
+                <tr>
+                    <td>PA Sektor</td>
+                    <td>Kamis Malam</td>
+                    <td>Pkl 20 : 30 Wib</td>
+                </tr>
+                <tr>
+                    <td>PA Inang</td>
+                    <td>Minggu Sore</td>
+                    <td>Pkl 15 : 00 Wib</td>
+                </tr>
+                <tr>
+                    <td>PA Bapa</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Pa Namaposo</td>
+                    <td>Jumat Malam</td>
+                    <td>Pkl 20 : 30 Wib</td>
+                </tr>
+                <tr>
+                    <td>PA Remaja</td>
+                    <td>Sabtu Malam</td>
+                    <td>Pkl 20 : 30 Wib</td>
+                </tr>
+                <tr>
+                    <td>PA Sekolah Minggu</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Parsermonan</td>
+                    <td>Minggu Sore</td>
+                    <td>Pkl 14 : 00 Wib</td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div id="pengurus" class="menu-content">
+        <h3>Struktur Kepengurusan</h3>
+        <div class="navbar">
+            <div class="nav-item">
+                <strong>Pengurus Harian Majelis Jemaat</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Pendeta Resort</td>
+                        <td>Pdt. Kiki Elisa Purba S.Th</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Porhanger</td>
+                        <td>St. Wardiahman Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Porhanger</td>
+                        <td>St.Bekson Sipakkar</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>St.Jan Predi Sumbayak</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>St.Remika Pitta Omas Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong>Pengurus Sektor</strong>
+                <table>
+                    <tr>
+                        <th>Sektor</th>
+                        <th>Ketua</th>
+                        <th>Bendahara</th>
+                        <th>Sekretaris</th>
+                    </tr>
+                    <tr>
+                        <td>Sektor I</td>
+                        <td>Joko</td>
+                        <td>.....</td>
+                        <td>....</td>
+                    </tr>
+                     <tr>
+                        <td>Sektor II</td>
+                        <td>Joko</td>
+                        <td>.....</td>
+                        <td>....</td>
+                    </tr>
+                    <tr>
+                        <td>Sektor III</td>
+                        <td>Joko</td>
+                        <td>.....</td>
+                        <td>....</td>
+                    </tr>
+                    <tr>
+                        <td>Sektor IV</td>
+                        <td>Joko</td>
+                        <td>.....</td>
+                        <td>....</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong> Pengurus Seksi Bapa</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Rudi</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Nia</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Dewa</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>Sari</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Agus</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>----</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong>Pengurus Seksi Inang</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Elpideria Sipayung</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Imelda Munthe</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Selnita R.Sagala</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>Tiurma Sipayung</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Selmariana Pandiangan</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Kordinator I</td>
+                        <td>Hernawati saragih</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Kordinator II</td>
+                        <td>Martalena Hutajulu</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Kordinator III</td>
+                        <td>Rodiani Marliani Simarmata</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Kordinator IV</td>
+                        <td>Lesmaria Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>----</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong>Pengurus Seksi Namaposo</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Riandi Girsang</td>
+                        <td>2023-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Jeksonsius Purba</td>
+                        <td>2023-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Clara purba</td>
+                        <td>2023-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>  </td>
+                        <td>2023-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Yessi Purba</td>
+                        <td>2023-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>St.Murdiahman Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong>Pengurus Seksi Remaja</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Rudi</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Nia</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Dewa</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>Sari</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Agus</td>
+                        <td>2021-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>----</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong>Seksi Sekolah Minggu</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th>Nama</th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Ernitio Saragih</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Viceria Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Nelly Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>csy. Lorida Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Elvi Sarianna Sinaga</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Anggota I</td>
+                        <td>Csy. Harjono Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Anggota II</td>
+                        <td>Csy. Anggie Cristinesha Purba</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Anggota III</td>
+                        <td>Tasya Tiorulina Saragih</td>
+                        <td>2025-2030</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>----</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="nav-item">
+                <strong> Pengurus B.D.S</strong>
+                <table>
+                    <tr>
+                        <th>Jabatan</th>
+                        <th></th>
+                        <th>Masa Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Ketua</td>
+                        <td>Sari</td>
+                        <td>2023-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Ketua</td>
+                        <td>Agus</td>
+                        <td>2023-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Sekretaris</td>
+                        <td>Dewi</td>
+                        <td>2023-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Wakil Sekretaris</td>
+                        <td>Doni</td>
+                        <td>2023-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Bendahara</td>
+                        <td>Yuni</td>
+                        <td>2023-2025</td>
+                    </tr>
+                    <tr>
+                        <td>Pembimbing</td>
+                        <td>----</td>
+                        <td>2025-2030</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="keuangan" class="menu-content">
+                    <div class="news-item">
+                        <h2>KEUANGAN SEKSI-SEKSI</h2>
+                        <img src="keuangan/keuangan.png" alt="keuangan" class="keuangan-img" >
+                    </div>
+                    <div class="news-item">
+                            <h2>ANGGARAN PENGELUARAN DAN SUMBER DANA TAHUN 2025 </h2>
+                            <img src="keuangan/keuangan1.png" alt="keuangan" class="keuangan-img" >
+                    </div>
+    </div>
+    <div id="program" class="menu-content">
+
+        <h2>I. Bidang Persekutuan</h2>
+        <h4>A. Ibadah Minggu</h4>
+        <ol>
+            <li>Ase boi ma i bahen hita parmasuk kebaktian minggu tepat waktu jam 10 : 00 wib,
+                sonai homa age majelis namagidangi ase hadir ma 15 menit sebelum jam 10 : 00 wib </li>
+            <li>Hubani kuria na adong keperluan hu gareja boi do i setor hubani sekretaris jemaat ( hu rumah ) sebelum hari minggu ase boi homi acara kebaktianta, 
+                janah anggo i gareja ase roh ma sebelum kebaktian.</li>
+            <li>Hubani bapa pakon inang/ namaposo 
+                ase ulang marsigaret atap pe marsuttil i bagas ruangan ni gareja.</li>
+            <li>Jaga hita ma kebersihan ni gereja on,
+                 ase membuang sampah itempat sampah na domma i sediahon</li>
+            <li>Ase majelis mengambil tempat i lobei,waktu kebaktian minggu</li>
+            <li>Pembagian galangan sesuai dengan pos ni</li>
+        </ol>
+        <h4>B. Partonggoan</h4>
+        <ol>
+            <li>Bani tahun 2025 on ase totap ma i lanjutkon hita tukar mimbar bani pengurus sektor 
+                na iadongkon bani bulan juni pakon september,janah PMJ bani bulan november.</li>
+            <li>Masuk partonggoan ase iseragam hon hita ma masuk jam 20:30 wib.</li>
+            <li>Sipartugas ase i horjahon ma horjani</li>
+            <li>Ibahen ma partonggoan juma tanganan aima bani pra paskah pakon olob olob</li>
+        </ol>
+        <h2>II. Sakramen</h2>
+        <ol>
+            <li>Bani tahun 2025 on ase totap ma i lanjutkon hita tukar mimbar bani pengurus sektor 
+                na iadongkon bani bulan juni pakon september,janah PMJ bani bulan november.</li>
+            <li>Masuk partonggoan ase iseragam hon hita ma masuk jam 20:30 wib.</li>
+            <li>Sipartugas ase i horjahon ma horjani</li>
+            <li>Ibahen ma partongoan juma tanganan aima bani pra paskah pakon olob olob</li>
+        </ol>
+        <h2>III. Pelayanan</h2>
+        <ol>
+            <li>Bani tahun on ase hubani haganup majelis lang pe martugas wajib berpakaian rapi,
+                anggo bapa marjas pakon mardasi,anggo inang mar kebaya pakon sanggul</li>
+            <li>Setiap majelis namangidangi bani kebaktian minggu wajib pakai jubah</li>
+            <li>Totap do i bahen hita pembagian bibit untuk kuria aima 
+                na iadongkon bani bulan agustus pakon oktober</li>
+            <li>Totap do i aktifkon hita minggu minggu kategorial</li>
+            <li>Bani tahun on i bahen hita do purna bakti hubani sintua na dob marumur 65 tahun</li>
+            <li>Bani tahun 2025 on ase i bahen hita ma laporan keuangan yang lebih valid 
+                janah boi i laporkon setiap minggu/sebagai warta gereja</li>
+        </ol>
+        <h2>IV. Kesaksian</h2>
+        <ol>
+            <li>Bani tahun on porluma i perjelas hita tugas sebagi majelis 
+                anggo sintua sebagai sintua ma,anggo syamas sebagai syamas ma</li>
+            <li>Totap ma i anggarhon hita aksi kasih hubani orang tua na lansia,namabalu,difabel,pakon natading maetek</li>
+            <li>Bani bulan Mei iadongkon do KPI distrik III ikuria ta on</li>
+            <li>Ase i aktifkon hita ma pengabsenan jumlah kuria na hadir bani kebaktian minggu</li>
+            <li>Bani tahun 2025 on iadongkon do penabalan syamas produk 2020</li>
+            <li>Bani minggu pesta Namaposo ase namaposo ma na mangidangi (tgl 26 desember)</li>
+            <li>Hubani ni Namaposo na sihol marhajabuan wajib mambuat surat </li>
+        </ol>
+        <h2>V. Kategorial</h2>
+        <h4>1. Sekolah Minggu</h4>
+        <ol>
+            <li>Kebaktian sekolah minggu ase masuk tepat jam 08 :00 wib</li>
+            <li>Hubani orang tua ase iojur ma niombahni untuk mengikuti kegiatan sekolah minggu</li>
+            <li>Porluma i bahen roster na mangidangi bani guru sekolah minggu</li>
+            <li>Porluma ijaga kebersamaan / kekompakan pengurus sekolah minggu pakon guru    S.minggu</li>
+            <li>Kebersihan ruang gereja porlu iperhatihon setelah selesai kebaktian sekolah minggu</li>
+        </ol>
+        <h4>2. Remaja</h4>
+        <ol>
+            <li>Porlu ma ibahen 1 wadah na inaungi gereja pakon pemerintah setempat untuk menjaga kenakalan   remaja</li>
+            <li>Remaja na domma kelas 1 SMA boi do mangikuti parguruan hassi pe lang manaksihon bani tahun on</li>
+        </ol>
+        <h4>3. Namaposo</h4>
+        <ol>
+            <li>Bani tahun on ase itingkatkon ma hasadaon ase taridah bahwasni namaposo aima bunga bunga ni gereja,
+                janah ulang minum tuak lobei ase lao partonggoan</li>
+            <li>Ase i bentuk ma song leader hubani namaposo, ase lambin roh hidupni pandodingon bani kebaktian   minggu</li>
+        </ol>
+        <h4>4. Inang</h4>
+        <ol>
+            <li>Totap ma mardalan PA inang songon tahun tahun na salpu</li>
+            <li>Hubani inang ase i ojur ma bapa irumah nalaho mandihuti kebaktian minggu/kegiatan  gereja</li>
+            <li>Bani minggu inang ase totap ma seksi inang na mangidangi</li>
+            <li>Hubani inang na lang ongga roh mandihuti PA bani Tahun nasalpu ase i paroro ma uhur na bei</li>
+        </ol>
+        <h4>5. Bapa</h4>
+        <ol>
+            <li>Bani tahun 2025 on ase i aktifkon kembali ma kepengurusan ni bapa ase boi mardalan partonggoan seksi bapa</li>
+            <li>Ipukkah hita bapa ma bani tahun 2025 on lobei marminggu ase i horjahon hita kegiatanta nalegan</li>
+        </ol>
+        <h4>6. Sektor</h4>
+        <ol>
+            <li>Ase i bahen hita ma sektor sebagai perpanjangan tangan ni gereja laho mendukung kegiatan ni kuria sonai age i resort</li>
+        </ol>
+        <h2>VI. Sektor</h2>
+        <ol>
+            <li>Setiap majelis wajib mangihuti parsermonan,tarlobih hubani majelis namangidangi bani kebaktian minggu sonai age bani partonggoan</li>
+            <li>Totap ma i lanjutkon hita parsermonan i kuriatta on</li>
+            <li>Parsermonan iadongkon dob selesai ibadah minggu, ianan  i gereja panorang jam 14:00 </li>
+        </ol>
+        <h2>VII. Pembangunan</h2>
+        <ol>
+            <li>Bani tahun on das ma hape usia ni garejatta 42 tahun</li>
+            <li>I upayahon hita ma bani tahun on manambah ruangan untuk ruang parhobasan</li>
+            <li>I bahen ma inventaris jubah pangidangion 3 helai</li>
+            <li>I upayahon hita ma untuk tahun 2025 paratahon tanah belakang gereja</li>
+            <li>Itempah ma sada tempat lilin untuk natal,podium kecil, 
+                tempat agenda,pakon kelengkapan ni sound system</li>
+        </ol>
+        <h2>VIII. Tambahan</h2>
+        <ol>
+            <li>Bani tahun 2024 adong tambah kuriatta aima 4 kk, janah 2 kk na kaluar</li>
+            <li>Jadi jumlah kk tahun 2025 berjumlah 143 kk,122 kk tangga baggal 21 kk tangga etek</li>
+        </ol>
+
+    </div>
+    <div id="saran" class="menu-content">Isi Menu 8
+
+    </div>
+</div>
+</body>
+</html>
